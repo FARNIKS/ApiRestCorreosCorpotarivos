@@ -30,7 +30,7 @@ class NoBirthdayConfigController extends Controller
     {
         $config = NoBirthdayConfig::first();
         $config->update([
-            'intro_text' => "¡Buen día, equipo de OBGROUP!\n\nHoy no registramos compañeros de cumpleaños en nuestras sucursales, pero aprovechamos este espacio para compartir un mensaje de valor con todos ustedes.",
+            'intro_text' => "¡Buen día, equipo de OBGROUP!\n\nHoy no registramos compañeros en cumpleaños en nuestras sucursales, pero aprovechamos este espacio para compartir un mensaje de valor con todos ustedes.",
             'main_body' => "Inspiración para hoy",
             'closing_text' => "¡Les deseamos una jornada llena de productividad y éxito!",
             'sign_off' => "Departamento de Talento Humano"

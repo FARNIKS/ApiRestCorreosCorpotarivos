@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Branch extends Model
 {
+    protected $connection = 'sqlsrv';
     protected $table = 'branches';
     protected $primaryKey = 'code';
     public $incrementing = false;

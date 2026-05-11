@@ -32,7 +32,7 @@ class NoBirthdaysMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.no-birthday',
+            view: 'emails.noBirthday',
         );
     }
 

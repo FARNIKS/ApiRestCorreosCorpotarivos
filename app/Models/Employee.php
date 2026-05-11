@@ -8,18 +8,15 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Employee extends Model
 {
-    /*
+
     protected $connection = 'sqlsrvax';
 
-    protected $table = 'AX_Usuarios_Cumple';*/
+    protected $table = 'AX_Usuarios_Cumple';
 
-    protected $table = 'employees';
     public $timestamps = false;
 
-    protected $fillable = ['Nombre', 'Cumple', 'Empresa'];
-
     protected $casts = [
-        'Cumple' => 'date',
+        'Cumple' => 'datetime',
     ];
 
     public function branch(): BelongsTo

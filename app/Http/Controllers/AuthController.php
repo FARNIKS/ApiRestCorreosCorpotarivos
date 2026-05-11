@@ -88,7 +88,6 @@ class AuthController extends Controller
                 'name'      => $request->name,
                 'email'     => $request->email,
                 'alias'     => strtolower($request->alias),
-                'password'  => Hash::make($request->password),
                 'role'      => $request->role,
                 'is_active' => true,
             ]);
@@ -110,10 +109,6 @@ class AuthController extends Controller
 
         if ($request->has('alias')) {
             $data['alias'] = strtolower($request->alias);
-        }
-
-        if ($request->filled('password')) {
-            $data['password'] = Hash::make($request->password);
         }
 
         $user->update($data);

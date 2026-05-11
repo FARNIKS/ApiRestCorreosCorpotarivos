@@ -45,6 +45,8 @@ Route::prefix('v1')->group(function () {
 
                 Route::post('/toggle-pause', [BirthdaySettingsController::class, 'toggleStatus']);
 
+                Route::post('/run-manual-send', [BirthdaySettingsController::class, 'runManualSend']);
+
                 Route::put('/birthday', [BirthdayConfigController::class, 'update']);
                 Route::post('/birthday/restore', [BirthdayConfigController::class, 'restore']);
 
