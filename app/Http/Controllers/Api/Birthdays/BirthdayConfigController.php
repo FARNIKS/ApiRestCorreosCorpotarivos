@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\Birthdays;
 
 use App\Http\Controllers\Controller;
 use App\Models\BirthdayConfig;
@@ -26,7 +26,7 @@ class BirthdayConfigController extends Controller
         $config = BirthdayConfig::first();
         $config->update([
             'banner_url'   => 'https://www.elorbe.la/images/cumpleanos.jpg',
-            'intro_text'   => "¡Feliz Cumpleaños de parte de OBGROUP!\nHoy celebramos a nuestros valiosos compañeros.",
+            'intro_text'   => "¡Feliz Cumpleaños de parte de OBGROUP!\nHoy celebramos el cumpleaños de esos valiosos compañeros que, con su talento y dedicación, hacen crecer a nuestro equipo día a día. ¡Feliz día!",
             'main_body'    => "Les deseamos un día lleno de alegría. ¡Que lo disfruten!",
             'closing_text' => "¡Detente un momento para leer esto...!",
             'sign_off'     => "Departamento de Talento Humano"

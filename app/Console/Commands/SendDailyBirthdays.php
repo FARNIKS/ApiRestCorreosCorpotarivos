@@ -36,7 +36,6 @@ class SendDailyBirthdays extends Command
 
         $bccList = [
             'obarquero@corporacionob.com',
-            'aalfaro@corporacionob.com',
             'orbecostarica@corporacionob.com',
             'orbepanama@corporacionob.com',
             'orbenicaragua@corporacionob.com',
@@ -72,7 +71,7 @@ class SendDailyBirthdays extends Command
         $auditRecords = $service->getAuditRecords();
 
         if ($auditRecords->isNotEmpty()) {
-            $auditRecipients = ['jquesada@corporacionob.com', 'mjimenezf@elorbe.la'];
+            $auditRecipients = ['mcabreram@corporacionob.com'];
 
             Mail::to($auditRecipients)
                 ->send(new DataQualityMail($auditRecords));

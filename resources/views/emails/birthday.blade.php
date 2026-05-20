@@ -5,104 +5,177 @@
     <meta charset="utf-8">
     <style>
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            color: #333;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: #334155;
             line-height: 1.6;
+            background-color: #f8fafc;
             margin: 0;
-            padding: 0;
+            padding: 40px 20px;
         }
 
+        /* Tarjeta principal con bordes redondeados y sombra elegante */
         .container {
             max-width: 600px;
             margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #f0f0f0;
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 8px 10px -6px rgba(15, 23, 42, 0.05);
+            border: 1px solid #e2e8f0;
         }
 
+        /* Banner integrado que se adapta a las esquinas redondeadas */
         .banner {
             width: 100%;
             height: auto;
-            border-radius: 4px;
             display: block;
         }
 
+        /* Contenedor de contenido para dar el espaciado perfecto interno */
+        .content {
+            padding: 15px 30px 30px 30px;
+        }
+
         .intro-text {
-            font-size: 1.1em;
-            margin-top: 20px;
+            font-size: 15.5px;
+            color: #334155;
+            margin-bottom: 25px;
         }
 
         .country-section {
-            margin-top: 25px;
+            margin-top: 30px;
         }
 
+        /* Contenedor para agrupar por Empresa */
+        .company-group {
+            margin-bottom: 24px;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.02);
+        }
+
+        /* Encabezado limpio con formato global de fiesta */
         .company-header {
-            color: #0056b3;
-            font-size: 1.2em;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
-            margin-bottom: 10px;
+            background-color: #f8fafc;
+            padding: 14px 20px;
+            margin: 0;
+            color: #0f172a;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid #e2e8f0;
+            text-transform: uppercase;
         }
 
         .employee-list {
             list-style: none;
-            padding-left: 20px;
+            padding: 0;
             margin: 0;
         }
 
+        /* Filas de cumpleañeros mejoradas con un padding más estético */
         .employee-item {
-            margin-bottom: 5px;
-            font-weight: bold;
+            padding: 16px 20px;
+            border-bottom: 1px solid #f1f5f9;
+            background-color: #ffffff;
+            font-size: 15.5px;
+            font-weight: 600;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
         }
 
+        .employee-item:last-child {
+            border-bottom: none;
+        }
+
+        .closing-section {
+            font-size: 15px;
+            color: #475569;
+            margin-top: 30px;
+        }
+
+        /* Caja de la frase célebre/cumpleaños premium con margen inferior reducido */
         .phrase-box {
-            background-color: #fdf6e3;
-            border-left: 5px solid #d3af37;
-            padding: 20px;
-            margin: 30px 0;
-            font-style: italic;
+            background-color: #fffbeb;
+            border-radius: 12px;
+            padding: 22px;
+            margin: 30px 0 5px 0;
+            /* Espacio mínimo abajo para pegarse al footer */
+            border: 1px solid #fef3c7;
+            text-align: center;
         }
 
+        .phrase-text {
+            margin: 0;
+            color: #b45309;
+            font-size: 15px;
+            font-style: italic;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        /* Pie de página con estructura integrada y más cercano a la frase */
         .footer {
-            font-size: 0.85em;
-            color: #999;
-            margin-top: 40px;
+            font-size: 12px;
+            color: #64748b;
             text-align: center;
-            border-top: 1px solid #eee;
-            padding-top: 15px;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 10px;
+            background-color: #f8fafc;
+            padding-bottom: 10px;
+        }
+
+        .footer strong {
+            color: #334155;
         }
     </style>
 </head>
 
 <body>
     <div class="container">
+        <!-- El banner se fusiona perfectamente arriba gracias a overflow:hidden de .container -->
         <img src="{{ $config->banner_url }}" alt="Banner Cumpleaños" class="banner">
 
-        <p class="intro-text">
-            {!! nl2br(e($config->intro_text)) !!}
-        </p>
+        <div class="content">
+            <p class="intro-text">
+                {!! nl2br(e($config->intro_text)) !!}
+            </p>
 
-        @foreach ($data['birthdays'] as $country => $companies)
-            <div class="country-section">
-                @foreach ($companies as $companyName => $employees)
-                    <h3 class="company-header">📍 {{ $country }} - {{ $companyName }}:</h3>
-                    <ul class="employee-list">
-                        @foreach ($employees as $employee)
-                            <li class="employee-item">🎂 {{ $employee->Nombre }}</li>
-                        @endforeach
-                    </ul>
-                @endforeach
+            {{-- Agrupación por País y Empresa con la ambientación de fiesta 🎉 --}}
+            @foreach ($data['birthdays'] as $country => $companies)
+                <div class="country-section">
+                    @foreach ($companies as $companyName => $employees)
+                        <div class="company-group">
+
+                            <h3 class="company-header">🥳 {{ strtoupper($country) }} › {{ $companyName }}</h3>
+
+                            <ul class="employee-list">
+                                @foreach ($employees as $employee)
+                                    <li class="employee-item">
+                                        <span style="margin-right: 8px;">🎂</span> {{ $employee->Nombre }}
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endforeach
+                </div>
+            @endforeach
+
+            <!-- Sección de textos de cierre dinámicos -->
+            <div class="closing-section">
+                <p>{!! nl2br(e($config->main_body)) !!}</p>
+                <p><strong>{{ $config->closing_text }}</strong></p>
             </div>
-        @endforeach
 
-        <div style="margin-top: 25px;">
-            <p>{!! nl2br(e($config->main_body)) !!}</p>
-            <p><strong>{{ $config->closing_text }}</strong></p>
+            {{-- Frase dinámica estilizada en la tarjeta ámbar --}}
+            <div class="phrase-box">
+                <p class="phrase-text">"{{ $data['phrase'] }}"</p>
+            </div>
         </div>
 
-        <div class="phrase-box">
-            <p style="margin:0; color: #856404;">"{{ $data['phrase'] }}"</p>
-        </div>
-
+        <!-- Firma del correo -->
         <div class="footer">
             <p>Atentamente,<br>
                 <strong>{{ $config->sign_off }}</strong><br>
