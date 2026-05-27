@@ -3,13 +3,13 @@
 namespace App\Services;
 
 use App\Models\NewEmployee;
-use App\Models\WelcomeMessage;
+use App\Models\Message; // <- Importamos el nuevo modelo unificado
 
 class NewEmployeeMailService
 {
     public function getProcessedNewEmployees(): ?array
     {
-        $phrase = WelcomeMessage::inRandomOrder()->first()?->phrase
+        $phrase = Message::inRandomOrder()->first()?->phrase
             ?? "¡Bienvenidos a nuestro equipo!";
 
         $newEmployees = NewEmployee::with(['branch.country'])

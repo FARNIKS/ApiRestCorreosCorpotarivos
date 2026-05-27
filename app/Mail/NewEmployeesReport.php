@@ -16,21 +16,10 @@ class NewEmployeesReport extends Mailable
     public $data;
     public $config;
 
-    /**
-     * Se acepta la configuración como opcional para evitar fallos.
-     */
-    public function __construct(array $data, NewEmployeeReportConfig $config = null)
+    public function __construct(array $data)
     {
         $this->data = $data;
-
-        // Si el comando no envía la configuración, el mailable la resuelve de forma autónoma
-        $this->config = $config ?? NewEmployeeReportConfig::first() ?? new NewEmployeeReportConfig([
-            'banner_url'   => 'https://www.elorbe.la/images/bienvenida.jpg',
-            'intro_text'   => "Estimado equipo de Talento Humano:",
-            'main_body'    => "Compartimos el consolidado de las nuevas incorporaciones registradas en la plataforma.",
-            'closing_text' => "Estamos seguros de que su talento, experiencia y compromiso serán un gran aporte.",
-            'sign_off'     => "Departamento de Talento Humano"
-        ]);
+        $this->config = NewEmployeeReportConfig::first();
     }
 
     public function envelope(): Envelope

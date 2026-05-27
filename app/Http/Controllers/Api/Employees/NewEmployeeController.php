@@ -21,6 +21,24 @@ class NewEmployeeController extends Controller
         return NewEmployeeResource::collection($employees);
     }
 
+    public function getCount(): JsonResponse
+    {
+        try {
+            $count = NewEmployee::count();
+
+            return response()->json([
+                'status' => 'success',
+                'data'   => [
+                    'count' => $count
+                ]
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status'  => 'error',
+                'message' => 'Error al obtener el conteo de empleados: ' . $e->getMessage()
+            ], 500);
+        }
+    }
 
     public function store(StoreNewEmployeeRequest $request): JsonResponse
     {

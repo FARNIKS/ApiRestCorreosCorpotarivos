@@ -47,8 +47,8 @@ class NewEmployeeReportConfigController extends Controller
     {
         return [
             'banner_url'   => 'https://www.elorbe.la/images/bienvenida.jpg',
-            'intro_text'   => "Estimado equipo de Talento Humano:",
-            'main_body'    => "Compartimos el consolidado de las nuevas incorporaciones registradas en la plataforma durante el ciclo actual. Estos perfiles han sido validados exitosamente y quedan programados para la notificación institucional del próximo lunes.",
+            'intro_text'   => "Estimados colaboradores:",
+            'main_body'    => "Es un verdadero gusto presentarles a los nuevos integrantes que se unen a nuestra familia organizacional a partir de esta semana. Los invitamos a brindarles nuestro apoyo y una calurosa bienvenida en el inicio de sus funciones.",
             'closing_text' => "Estamos seguros de que su talento, experiencia y compromiso serán un gran aporte para continuar alcanzando grandes metas juntos.",
             'sign_off'     => "Departamento de Talento Humano"
         ];

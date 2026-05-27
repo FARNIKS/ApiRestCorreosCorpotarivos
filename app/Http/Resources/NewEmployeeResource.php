@@ -24,7 +24,7 @@ class NewEmployeeResource extends JsonResource
                 'nombre' => $this->branch?->company_name ?? 'Sin Empresa',
                 'pais'   => $this->branch?->country?->name ?? 'Sin País',
             ],
-            'creado_el'     => $this->created_at?->format('Y-m-d H:i:s'),
+            'creado_el'     => $this->created_at?->format('Y-m-d'),
         ];
     }
 }

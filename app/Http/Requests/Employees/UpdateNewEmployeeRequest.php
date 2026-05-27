@@ -16,7 +16,7 @@ class UpdateNewEmployeeRequest extends FormRequest
     {
         return [
             'nombre'       => 'sometimes|string|max:255',
-            'departamento' => 'sometimes|string|exists:employees,Departamento',
+            'departamento' => 'sometimes|string|max:255',
             'empresa_code' => 'sometimes|string|exists:branches,code',
             'enviado'      => 'sometimes|boolean',
         ];

@@ -29,9 +29,15 @@ Route::prefix('v1')->group(function () {
         Route::get('users', [AuthController::class, 'index']);
 
         Route::get('history-employees', [HistoryEmployeeController::class, 'index']);
+
+
+        // Rutas de Nuevos Empleados (Lectura)
         Route::get('new-employees', [NewEmployeeController::class, 'index']);
+        Route::get('new-employees/count', [NewEmployeeController::class, 'getCount']);
         Route::get('new-employees/{newEmployee}', [NewEmployeeController::class, 'show']);
-        Route::get('employees/departamentos', [EmployeeController::class, 'getDepartamentos']);
+
+        Route::get('departments', [EmployeeController::class, 'getDepartamentos']);
+
 
         Route::apiResources([
             'employees' => EmployeeController::class,
@@ -59,6 +65,7 @@ Route::prefix('v1')->group(function () {
             Route::patch('users/{user}', [AuthController::class, 'update']);
             Route::patch('users/status/{user}', [AuthController::class, 'toggleStatus']);
 
+            // Rutas de Nuevos Empleados (Escritura/Modificación)
             Route::post('new-employees', [NewEmployeeController::class, 'store']);
             Route::put('new-employees/{newEmployee}', [NewEmployeeController::class, 'update']);
             Route::delete('new-employees/{newEmployee}', [NewEmployeeController::class, 'destroy']);

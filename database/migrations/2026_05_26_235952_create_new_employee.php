@@ -6,24 +6,21 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('new_employees', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('departamento'); // Extraído de Employee
-            $table->string('empresa_code', 10); // Relación con Branch
+            $table->string('departamento');
+            $table->string('empresa_code', 10);
+            $table->date('cumple')->nullable();
             $table->boolean('enviado')->default(false);
             $table->timestamps();
+
+            $table->foreign('empresa_code')->references('code')->on('branches')->onDelete('no action');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('new_employees');

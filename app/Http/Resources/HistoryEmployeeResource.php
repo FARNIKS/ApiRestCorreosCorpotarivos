@@ -23,7 +23,7 @@ class HistoryEmployeeResource extends JsonResource
                 'nombre' => $this->branch?->company_name ?? 'Sin Empresa',
                 'pais'   => $this->branch?->country?->name ?? 'Sin País',
             ],
-            'fecha_envio'   => $this->fecha_envio ? $this->fecha_envio->format('Y-m-d H:i:s') : null,
+            'fecha_envio'   => $this->fecha_envio ? $this->fecha_envio->format('Y-m-d') : null,
         ];
     }
 }

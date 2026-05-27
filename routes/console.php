@@ -12,17 +12,21 @@ Artisan::command('inspire', function () {
 })->purpose('Display an inspiring quote');
 
 Schedule::command('app:send-daily-birthdays')
-    ->dailyAt('08:00')
+    ->dailyAt('07:00')
     ->skip(function () {
         return (bool) Cache::get('birthdays_paused', false);
     });
 
-// 2. Reporte para Recursos Humanos (Viernes a las 5:00 PM)
 Schedule::command('app:send-friday-hr-report')
     ->fridays()
-    ->at('17:00');
+    ->at('17:00')
+    ->skip(function () {
+        return (bool) Cache::get('new_employees_friday_paused', false);
+    });
 
-// 3. Procesamiento y envío general (Lunes a las 7:00 AM)
 Schedule::command('app:process-monday-new-employees')
     ->mondays()
-    ->at('07:00');
+    ->at('07:00')
+    ->skip(function () {
+        return (bool) Cache::get('new_employees_monday_paused', false);
+    });

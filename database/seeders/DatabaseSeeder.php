@@ -16,7 +16,10 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            MailConfigsSeeder::class,
+            CountrySeeder::class,
+            MessageSeeder::class, // Las 366 frases diarias
+            MailConfigsSeeder::class, // Las 5 configuraciones visuales de plantillas
+            BranchSeeder::class,
         ]);
     }
 }
