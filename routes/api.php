@@ -16,7 +16,7 @@ use App\Http\Controllers\Api\NewEmployeeReports\NoNewEmployeeReportRhConfigContr
 use App\Http\Controllers\Api\Settings\BirthdaySettingsController;
 use App\Http\Controllers\Api\Settings\FridayReportSettingsController;
 use App\Http\Controllers\Api\Settings\MondayProcessSettingsController;
-use App\Http\Resources\UserResource;
+use App\Http\Resources\UserAcces\UserResource;
 
 Route::prefix('v1')->group(function () {
 
@@ -35,8 +35,6 @@ Route::prefix('v1')->group(function () {
         Route::get('new-employees', [NewEmployeeController::class, 'index']);
         Route::get('new-employees/count', [NewEmployeeController::class, 'getCount']);
         Route::get('new-employees/{newEmployee}', [NewEmployeeController::class, 'show']);
-
-        Route::get('departments', [EmployeeController::class, 'getDepartamentos']);
 
 
         Route::apiResources([
@@ -65,10 +63,7 @@ Route::prefix('v1')->group(function () {
             Route::patch('users/{user}', [AuthController::class, 'update']);
             Route::patch('users/status/{user}', [AuthController::class, 'toggleStatus']);
 
-            // Rutas de Nuevos Empleados (Escritura/Modificación)
-            Route::post('new-employees', [NewEmployeeController::class, 'store']);
-            Route::put('new-employees/{newEmployee}', [NewEmployeeController::class, 'update']);
-            Route::delete('new-employees/{newEmployee}', [NewEmployeeController::class, 'destroy']);
+            Route::post('/new-employees/sync', [NewEmployeeController::class, 'syncNow']);
 
             Route::prefix('settings')->group(function () {
                 // Control de procesos automáticos

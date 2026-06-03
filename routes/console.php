@@ -19,14 +19,17 @@ Schedule::command('app:send-daily-birthdays')
 
 Schedule::command('app:send-friday-hr-report')
     ->fridays()
-    ->at('17:00')
+    ->at('16:40')
     ->skip(function () {
         return (bool) Cache::get('new_employees_friday_paused', false);
     });
 
 Schedule::command('app:process-monday-new-employees')
     ->mondays()
-    ->at('07:00')
+    ->at('09:00')
     ->skip(function () {
         return (bool) Cache::get('new_employees_monday_paused', false);
     });
+
+Schedule::command('employees:sync-new')->dailyAt('07:00')->withoutOverlapping();
+Schedule::command('employees:sync-new')->dailyAt('16:35')->withoutOverlapping();

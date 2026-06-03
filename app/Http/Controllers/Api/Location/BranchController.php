@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\Location;
 
 use App\Http\Controllers\Controller;
 use App\Models\Branch;
-use App\Http\Resources\BranchResource;
+use App\Http\Resources\Location\BranchResource;
 
 
 class BranchController extends Controller

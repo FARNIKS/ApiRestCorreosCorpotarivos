@@ -15,14 +15,19 @@ class NewEmployee extends Model
     protected $table = "new_employees";
 
     protected $fillable = [
+        'cedula',
         'nombre',
         'departamento',
         'empresa_code',
+        'cumple',
+        'fecha_ingreso',
         'enviado',
     ];
 
     protected $casts = [
         'enviado' => 'boolean',
+        'cumple' => 'date',
+        'fecha_ingreso' => 'date',
     ];
 
     public function branch(): BelongsTo

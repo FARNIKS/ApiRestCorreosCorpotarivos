@@ -10,17 +10,15 @@ class UserSeeder extends Seeder
 {
     public function run(): void
     {
-        // 1. Crear Usuario Administrador
         User::updateOrCreate(
-            ['email' => 'admin@admin.com'], // Busca por email
+            ['email' => 'admin@admin.com'],
             [
                 'name'     => 'Admin',
-                'password' => Hash::make('password'), // Cambia esto después
+                'password' => Hash::make('password'),
                 'role'     => 'admin',
             ]
         );
 
-        // 2. Crear Usuario Lector (Empleado)
         User::updateOrCreate(
             ['email' => 'lector@corporatehrp.com'],
             [

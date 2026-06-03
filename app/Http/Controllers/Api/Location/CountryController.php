@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\Location;
 
 use App\Http\Controllers\Controller;
 use App\Models\Country;
-use App\Http\Resources\CountryResource;
+use App\Http\Resources\Location\CountryResource;
 
 
 class CountryController extends Controller

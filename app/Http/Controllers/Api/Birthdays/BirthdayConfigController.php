@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Api\Birthdays;
 
 use App\Http\Controllers\Controller;
 use App\Models\BirthdayConfig;
-use App\Http\Requests\UpdateBirthdayRequest;
-use App\Http\Resources\BirthdayConfigResource;
+use App\Http\Requests\Birthdays\UpdateBirthdayRequest;
+use App\Http\Resources\Birthdays\BirthdayConfigResource;
 
 class BirthdayConfigController extends Controller
 {

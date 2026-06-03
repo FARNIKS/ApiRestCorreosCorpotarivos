@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Birthdays;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateNoBirthdayRequest extends FormRequest
+class UpdateBirthdayRequest extends FormRequest
 {
+
     public function authorize(): bool
     {
         $user = $this->user();
@@ -16,6 +17,7 @@ class UpdateNoBirthdayRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'banner_url'   => 'nullable|string',
             'intro_text'   => 'required|string',
             'main_body'    => 'required|string',
             'closing_text' => 'required|string',

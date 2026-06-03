@@ -10,15 +10,20 @@ class HistoryEmployee extends Model
 {
 
     protected $fillable = [
+        'cedula',
         'nombre',
         'departamento',
         'empresa_code',
+        'fecha_ingreso',
         'fecha_envio',
     ];
 
+
     protected $casts = [
-        'fecha_envio' => 'datetime',
+        'fecha_ingreso' => 'date',
+        'fecha_envio'   => 'datetime',
     ];
+
 
     public function branch(): BelongsTo
     {

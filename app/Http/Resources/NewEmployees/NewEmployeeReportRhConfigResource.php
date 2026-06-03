@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\NewEmployees;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class NoNewEmployeeReportRhConfigResource extends JsonResource
+class NewEmployeeReportRhConfigResource extends JsonResource
 {
     public function toArray(Request $request): array
     {

@@ -36,6 +36,11 @@ class Branch extends Model
         return $this->hasMany(Employee::class, 'Empresa', 'code');
     }
 
+    public function externalEmployees(): HasMany
+    {
+        return $this->hasMany(ExternalEmployee::class, 'Empresa', 'code');
+    }
+
     public function newEmployees(): HasMany
     {
         return $this->hasMany(NewEmployee::class, 'empresa_code', 'code');

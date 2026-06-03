@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api\NewEmployeeReports;
 use App\Http\Controllers\Controller;
 use App\Models\NewEmployeeReportRhConfig;
 use App\Http\Requests\NewEmployeeReports\UpdateNewEmployeeReportRhConfigRequest;
-use App\Http\Resources\NewEmployeeReportRhConfigResource;
+use App\Http\Resources\NewEmployees\NewEmployeeReportRhConfigResource;
 use Illuminate\Http\JsonResponse;
 
 class NewEmployeeReportRhConfigController extends Controller

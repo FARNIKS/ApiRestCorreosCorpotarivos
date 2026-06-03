@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Resources\UserResource;
+use App\Http\Resources\UserAcces\UserResource;
 use Illuminate\Support\Facades\Log;
-use App\Http\Requests\UpdateUserRequest;
-use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UserAcces\UpdateUserRequest;
+use App\Http\Requests\UserAcces\StoreUserRequest;
 
 
 class AuthController extends Controller

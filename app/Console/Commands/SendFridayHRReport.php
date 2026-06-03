@@ -19,16 +19,15 @@ class SendFridayHRReport extends Command
 
         $recipients = [
             'talentohumanocentroa@corporacionob.com',
-            'mcabreram@corporacionob.com'
+            'mcabreram@corporacionob.com',
+            'ldijeres@corporacionob.com'
         ];
 
         try {
             if (!$data) {
-                // Súper limpio: sin parámetros de texto heredados
                 Mail::to($recipients)->send(new NoNewEmployeesReportRH());
                 $this->info('Sin nuevos registros. Notificación enviada a RH.');
             } else {
-                // Solo le pasamos la colección de empleados procesada
                 Mail::to($recipients)->send(new NewEmployeesReportRH($data['newEmployees']));
                 $this->info('Reporte semanal enviado a RH con los ingresos detectados.');
             }

@@ -13,11 +13,15 @@ return new class extends Migration
     {
         Schema::create('history_employees', function (Blueprint $table) {
             $table->id();
+            $table->string('cedula', 50);
             $table->string('nombre');
             $table->string('departamento');
             $table->string('empresa_code', 10);
+            $table->date('fecha_ingreso')->nullable();
             $table->timestamp('fecha_envio')->useCurrent();
             $table->timestamps();
+
+            $table->index(['cedula', 'fecha_ingreso']);
         });
     }
 

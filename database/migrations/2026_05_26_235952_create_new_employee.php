@@ -10,10 +10,12 @@ return new class extends Migration
     {
         Schema::create('new_employees', function (Blueprint $table) {
             $table->id();
+            $table->string('cedula', 50)->unique();
             $table->string('nombre');
             $table->string('departamento');
             $table->string('empresa_code', 10);
             $table->date('cumple')->nullable();
+            $table->date('fecha_ingreso')->nullable();
             $table->boolean('enviado')->default(false);
             $table->timestamps();
 

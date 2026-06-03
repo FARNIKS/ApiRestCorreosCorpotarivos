@@ -9,10 +9,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('branches', function (Blueprint $table) {
-            $table->string('code', 10)->primary(); // VARCHAR(10) PRIMARY KEY
+            $table->string('code', 10)->primary();
             $table->string('company_name', 255);
 
-            // Relación con países (Llave Foránea)
             $table->foreignId('country_id')->constrained('countries')->onDelete('cascade');
 
             $table->boolean('estado')->default(true);

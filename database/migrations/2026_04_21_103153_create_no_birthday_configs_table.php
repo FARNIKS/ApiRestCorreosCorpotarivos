@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('no_birthday_configs', function (Blueprint $table) {
             $table->id();
             $table->text('intro_text');
-            $table->text('main_body');    // Antes: phrase_title
+            $table->text('main_body');
             $table->text('closing_text');
             $table->string('sign_off');
             $table->timestamps();

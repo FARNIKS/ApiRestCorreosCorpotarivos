@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use App\Models\NewEmployee;
-use App\Models\Message; // <- Importamos el nuevo modelo unificado
+use App\Models\Message;
 
 class NewEmployeeMailService
 {

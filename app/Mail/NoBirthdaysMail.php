@@ -14,7 +14,7 @@ class NoBirthdaysMail extends Mailable
     use Queueable, SerializesModels;
 
     public $data;
-    public $config; // Declaramos la variable pública
+    public $config;
 
     public function __construct(array $data)
     {

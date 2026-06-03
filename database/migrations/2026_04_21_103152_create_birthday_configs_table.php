@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('banner_url');
             $table->text('intro_text');
-            $table->text('main_body');    // Antes: footer_text
-            $table->text('closing_text'); // Antes: motivation_prompt
+            $table->text('main_body');
+            $table->text('closing_text');
             $table->string('sign_off');
             $table->timestamps();
         });

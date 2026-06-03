@@ -13,7 +13,6 @@ class MailConfigsSeeder extends Seeder
 {
     public function run(): void
     {
-        // 1. Configuración: Con Cumpleaños (BirthdayConfig)
         BirthdayConfig::firstOrCreate([], [
             'banner_url'   => 'https://www.elorbe.la/images/cumpleanos.jpg',
             'intro_text'   => "¡Feliz Cumpleaños de parte de OBGROUP!\nHoy celebramos el cumpleaños de esos valiosos compañeros que, con su talento y dedicación, hacen crecer a nuestro equipo día a día. ¡Feliz día!",
@@ -22,7 +21,6 @@ class MailConfigsSeeder extends Seeder
             'sign_off'     => "Departamento de Talento Humano"
         ]);
 
-        // 2. Configuración: Sin Cumpleaños registrados (NoBirthdayConfig)
         NoBirthdayConfig::firstOrCreate([], [
             'intro_text'   => "¡Buen día, equipo de OBGROUP!\n\nHoy no registramos compañeros en cumpleaños en nuestras sucursales, pero aprovechamos este espacio para compartir un mensaje de valor con todos ustedes.",
             'main_body'    => "Inspiración para hoy",
@@ -30,7 +28,6 @@ class MailConfigsSeeder extends Seeder
             'sign_off'     => "Departamento de Talento Humano"
         ]);
 
-        // 3. Configuración: Reporte General de Nuevos Ingresos (NewEmployeeReportConfig)
         NewEmployeeReportConfig::firstOrCreate([], [
             'banner_url'   => 'https://www.elorbe.la/images/bienvenida.jpg',
             'intro_text'   => "Estimados colaboradores:",
@@ -39,7 +36,7 @@ class MailConfigsSeeder extends Seeder
             'sign_off'     => "Departamento de Talento Humano"
         ]);
 
-        // 4. Configuración: Reporte Interno de Recursos Humanos con Novedades (NewEmployeeReportRhConfig)
+
         NewEmployeeReportRhConfig::firstOrCreate([], [
             'title'        => 'Gestión de Nuevos Talentos',
             'intro_text'   => "Estimado equipo de Talento Humano:\n\nCompartimos el consolidado de las nuevas incorporaciones registradas en la plataforma durante el ciclo actual. Estos perfiles han sido validados exitosamente y quedan programados para la notificación institucional del próximo lunes.",
@@ -47,7 +44,7 @@ class MailConfigsSeeder extends Seeder
             'sign_off'     => 'OBGROUP AUTOMATION SYSTEM'
         ]);
 
-        // 5. Configuración: Reporte Interno de Recursos Humanos sin Novedades (NoNewEmployeeReportRhConfig)
+
         NoNewEmployeeReportRhConfig::firstOrCreate([], [
             'title'        => 'Gestión de Nuevos Talentos',
             'intro_text'   => "Estimado equipo de Talento Humano:\n\nDe acuerdo con el proceso de control automatizado, se informa que durante el ciclo actual no se han registrado nuevos ingresos de personal en el sistema de OBGROUP.",

@@ -8,6 +8,7 @@ use App\Mail\NewEmployeesReport;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\DB;
 use App\Models\HistoryEmployee;
+use App\Models\NewEmployee;
 use App\Models\NewEmployeeReportConfig;
 
 class ProcessMondayNewEmployee extends Command
@@ -19,7 +20,7 @@ class ProcessMondayNewEmployee extends Command
     {
         $data = $service->getProcessedNewEmployees();
 
-        if (!$data) {
+        if (!$data || (is_array($data) && empty($data['raw_collection']))) {
             $this->info('No hay nuevos ingresos pendientes para enviar.');
             return;
         }
@@ -42,26 +43,59 @@ class ProcessMondayNewEmployee extends Command
         ];
 
         try {
+            DB::transaction(function () use ($data) {
+                $coleccion = is_array($data) ? $data['raw_collection'] : $data;
+
+                foreach ($coleccion as $emp) {
+
+                    $cedula       = $emp->cedula ?? $emp->Cedula ?? null;
+                    $nombre       = $emp->nombre ?? $emp->Nombre ?? null;
+                    $departamento = $emp->departamento ?? $emp->Departamento ?? 'Sin Área';
+                    $empresaCode  = $emp->empresa_code ?? $emp->Empresa ?? null;
+
+                    $fechaIngresoRaw = $emp->fecha_ingreso ?? $emp->Fecha_Ingreso ?? null;
+                    $fechaIngreso    = $fechaIngresoRaw instanceof \DateTimeInterface
+                        ? $fechaIngresoRaw->format('Y-m-d')
+                        : $fechaIngresoRaw;
+
+                    if ($cedula) {
+                        $registroLocal = NewEmployee::where('cedula', $cedula)->first();
+
+                        if ($registroLocal) {
+                            HistoryEmployee::create([
+                                'cedula'        => $registroLocal->cedula,
+                                'nombre'        => $registroLocal->getRawOriginal('nombre') ?? $registroLocal->nombre,
+                                'departamento'  => $registroLocal->departamento,
+                                'empresa_code'  => $registroLocal->empresa_code,
+                                'fecha_ingreso' => $registroLocal->fecha_ingreso,
+                                'fecha_envio'   => now(),
+                            ]);
+
+                            $registroLocal->delete();
+                        } else {
+
+                            HistoryEmployee::create([
+                                'cedula'        => $cedula,
+                                'nombre'        => $nombre,
+                                'departamento'  => $departamento,
+                                'empresa_code'  => $empresaCode,
+                                'fecha_ingreso' => $fechaIngreso,
+                                'fecha_envio'   => now(),
+                            ]);
+                        }
+                    }
+                }
+            });
+
+            $this->info('Traspaso de base de datos completado en local. Procediendo a enviar el correo...');
+
             Mail::to('talentohumanocentroa@corporacionob.com')
                 ->bcc($bccList)
                 ->send(new NewEmployeesReport($data, $config));
 
-            DB::transaction(function () use ($data) {
-                foreach ($data['raw_collection'] as $emp) {
-                    HistoryEmployee::create([
-                        'nombre'       => $emp->nombre,
-                        'departamento' => $emp->departamento,
-                        'empresa_code' => $emp->empresa_code,
-                        'fecha_envio'  => now(),
-                    ]);
-
-                    $emp->delete();
-                }
-            });
-
             $this->info('Proceso de lunes completado con éxito: Correos enviados y datos movidos a historial.');
         } catch (\Exception $e) {
-            $this->error('Error durante el proceso: ' . $e->getMessage());
+            $this->error('Error durante el proceso del lunes: ' . $e->getMessage());
         }
     }
 }

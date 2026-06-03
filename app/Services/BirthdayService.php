@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use App\Models\Employee;
-use App\Models\Message; // <- Importamos el nuevo modelo unificado
+use App\Models\Message;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 
@@ -17,7 +17,6 @@ class BirthdayService
             return null;
         }
 
-        // Buscamos directamente el ID correspondiente al día del año actual (1-366)
         $message = Message::find(now()->dayOfYear)?->phrase
             ?? "¡Felicidades en tu día!";
 

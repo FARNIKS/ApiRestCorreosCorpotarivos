@@ -17,8 +17,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             CountrySeeder::class,
-            MessageSeeder::class, // Las 366 frases diarias
-            MailConfigsSeeder::class, // Las 5 configuraciones visuales de plantillas
+            MessageSeeder::class,
+            MailConfigsSeeder::class,
             BranchSeeder::class,
         ]);
     }

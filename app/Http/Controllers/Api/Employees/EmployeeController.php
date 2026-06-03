@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Api\Employees;
 
 use App\Http\Controllers\Controller;
 use App\Models\Employee;
-use App\Http\Resources\EmployeeResource;
-use Illuminate\Http\JsonResponse; // Asegúrate de importar esto
+use App\Http\Resources\Employees\EmployeeResource;
+use Illuminate\Http\JsonResponse;
 
 class EmployeeController extends Controller
 {
@@ -18,9 +18,6 @@ class EmployeeController extends Controller
         return EmployeeResource::collection($employees);
     }
 
-    /**
-     * 🔥 Trae todos los departamentos únicos sin repetirse para el formulario
-     */
     public function getDepartamentos(): JsonResponse
     {
         try {

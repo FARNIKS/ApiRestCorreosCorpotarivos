@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Api\Birthdays;
 
 use App\Http\Controllers\Controller;
 use App\Models\NoBirthdayConfig;
-use App\Http\Requests\UpdateNoBirthdayRequest;
-use App\Http\Resources\NoBirthdayConfigResource;
+use App\Http\Requests\Birthdays\UpdateNoBirthdayRequest;
+use App\Http\Resources\Birthdays\NoBirthdayConfigResource;
 use Illuminate\Http\JsonResponse;
 
 class NoBirthdayConfigController extends Controller

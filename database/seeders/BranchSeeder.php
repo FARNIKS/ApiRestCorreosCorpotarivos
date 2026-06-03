@@ -10,7 +10,6 @@ class BranchSeeder extends Seeder
 {
     public function run(): void
     {
-        // Mapeo exacto basado en tu matriz de Excel
         $branchesData = [
             ['code' => 'CEON', 'company_name' => 'ORBE',   'country' => 'Nicaragua'],
             ['code' => 'ATI',  'company_name' => 'ATI',    'country' => 'Costa Rica'],
@@ -25,7 +24,6 @@ class BranchSeeder extends Seeder
         ];
 
         foreach ($branchesData as $branch) {
-            // Buscamos el ID del país correspondiente en la base de datos
             $country = Country::where('name', $branch['country'])->first();
 
             if ($country) {
