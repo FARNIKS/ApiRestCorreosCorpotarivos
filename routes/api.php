@@ -19,7 +19,7 @@ use App\Http\Controllers\Api\Settings\MondayProcessSettingsController;
 use App\Http\Resources\UserAcces\UserResource;
 
 Route::prefix('v1')->group(function () {
-
+    Route::view('/documentacion', 'documentacion');
     Route::post('login', [AuthController::class, 'login']);
 
     Route::middleware('auth:sanctum')->group(function () {
@@ -30,18 +30,19 @@ Route::prefix('v1')->group(function () {
 
         Route::get('history-employees', [HistoryEmployeeController::class, 'index']);
 
-
-        // Rutas de Nuevos Empleados (Lectura)
         Route::get('new-employees', [NewEmployeeController::class, 'index']);
         Route::get('new-employees/count', [NewEmployeeController::class, 'getCount']);
         Route::get('new-employees/{newEmployee}', [NewEmployeeController::class, 'show']);
 
 
-        Route::apiResources([
-            'employees' => EmployeeController::class,
-            'branches'  => BranchController::class,
-            'countries' => CountryController::class,
-        ]);
+        Route::get('employees', [EmployeeController::class, 'index']);
+        Route::get('employees/{employee}', [EmployeeController::class, 'show']);
+
+        Route::get('branches', [BranchController::class, 'index']);
+        Route::get('branches/{branch}', [BranchController::class, 'show']);
+
+        Route::get('countries', [CountryController::class, 'index']);
+        Route::get('countries/{country}', [CountryController::class, 'show']);
 
         Route::prefix('settings')->group(function () {
 
@@ -66,7 +67,6 @@ Route::prefix('v1')->group(function () {
             Route::post('/new-employees/sync', [NewEmployeeController::class, 'syncNow']);
 
             Route::prefix('settings')->group(function () {
-                // Control de procesos automáticos
                 Route::post('toggle-pause', [BirthdaySettingsController::class, 'toggleStatus']);
                 Route::post('run-manual-send', [BirthdaySettingsController::class, 'runManualSend']);
                 Route::post('new-employees-friday/toggle', [FridayReportSettingsController::class, 'toggleStatus']);

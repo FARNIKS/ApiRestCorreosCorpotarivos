@@ -8,7 +8,8 @@
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             color: #334155;
             line-height: 1.6;
-            background-color: #f8fafc;
+            /* Fondo cambiado a transparente como solicitaste */
+            background-color: transparent;
             margin: 0;
             padding: 40px 20px;
         }
@@ -135,7 +136,6 @@
 
 <body>
     <div class="container">
-        <!-- El banner se fusiona perfectamente arriba gracias a overflow:hidden de .container -->
         <img src="{{ $config->banner_url }}" alt="Banner Cumpleaños" class="banner">
 
         <div class="content">
@@ -163,7 +163,6 @@
                 </div>
             @endforeach
 
-            <!-- Sección de textos de cierre dinámicos -->
             <div class="closing-section">
                 <p>{!! nl2br(e($config->main_body)) !!}</p>
                 <p><strong>{{ $config->closing_text }}</strong></p>
@@ -175,7 +174,6 @@
             </div>
         </div>
 
-        <!-- Firma del correo -->
         <div class="footer">
             <p>Atentamente,<br>
                 <strong>{{ $config->sign_off }}</strong><br>

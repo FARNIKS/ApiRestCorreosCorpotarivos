@@ -119,7 +119,7 @@ return [
         'name' => env('MAIL_FROM_NAME', env('APP_NAME', 'Laravel')),
     ],
     'to' => [
-        'address' => 'whawowlolaxz@gmail.com',
+        'address' => 'mjimenezf@elorbe.la',
         'name' => 'Pruebas de Desarrollo',
     ],
 ];

@@ -19,7 +19,7 @@ class UpdateNewEmployeeReportConfigRequest extends FormRequest
         return [
             'banner_url'   => 'sometimes|required|url|max:2048',
             'intro_text'   => 'sometimes|required|string|max:1000',
-            'main_body'    => 'sometimes|required|string|max:5000', // Un rango amplio para el texto central
+            'main_body'    => 'sometimes|required|string|max:5000',
             'closing_text' => 'sometimes|required|string|max:2000',
             'sign_off'     => 'sometimes|required|string|max:255',
         ];

@@ -8,7 +8,7 @@
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             color: #334155;
             line-height: 1.6;
-            background-color: #f8fafc;
+            background-color: transparent;
             margin: 0;
             padding: 40px 20px;
         }
@@ -125,16 +125,13 @@
 
         .alert-box {
             background-color: #fef1f2;
-            /* Un fondo rojizo/ámbar muy suave y moderno */
             border: 1px solid #fee2e2;
             border-left: 4px solid #f59e0b;
-            /* Línea de énfasis izquierda color ámbar */
             border-radius: 12px;
             padding: 16px 20px;
             margin-bottom: 24px;
             display: flex;
             align-items: center;
-            /* Centrado vertical absoluto y perfecto del icono */
         }
 
         .alert-icon {
@@ -149,14 +146,12 @@
         .alert-text {
             font-size: 13.5px;
             color: #9a3412;
-            /* Texto marrón rojizo oscuro de alta legibilidad */
             margin: 0;
             line-height: 1.5;
         }
 
         .alert-text strong {
             color: #7c2d12;
-            /* Énfasis un poco más oscuro para la "Nota de control" */
             font-weight: 700;
         }
 
@@ -179,7 +174,7 @@
     </style>
 </head>
 
-<body>
+<body style="background-color: transparent;">
     <div class="main-card">
         <div class="header-gradient">
             <h2>{{ $config->title }}</h2>

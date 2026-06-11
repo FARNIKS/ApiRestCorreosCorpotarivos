@@ -15,7 +15,7 @@ class NewEmployeeReportConfigController extends Controller
         $config = NewEmployeeReportConfig::firstOrCreate([], $this->getDefaultValues());
         return response()->json([
             'status' => 'success',
-            'data'   => new NewEmployeeReportConfigResource($config) // <-- Aplicado aquí
+            'data'   => new NewEmployeeReportConfigResource($config)
         ]);
     }
 
@@ -27,7 +27,7 @@ class NewEmployeeReportConfigController extends Controller
         return response()->json([
             'status'  => 'success',
             'message' => 'Configuración del reporte de ingresos actualizada con éxito.',
-            'data'    => new NewEmployeeReportConfigResource($config) // <-- Aplicado aquí
+            'data'    => new NewEmployeeReportConfigResource($config)
         ]);
     }
 

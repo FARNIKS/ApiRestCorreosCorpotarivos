@@ -8,7 +8,7 @@
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             color: #334155;
             line-height: 1.6;
-            background-color: #f8fafc;
+            background-color: transparent;
             margin: 0;
             padding: 40px 20px;
         }
@@ -132,9 +132,9 @@
             color: #64748b;
             text-align: center;
             border-top: 1px solid #f1f5f9;
-            padding-top: 10px;
+            padding-top: 20px;
             background-color: #f8fafc;
-            padding-bottom: 10px;
+            padding-bottom: 20px;
         }
 
         .footer strong {
@@ -143,10 +143,9 @@
     </style>
 </head>
 
-<body>
+<body style="background-color: transparent;">
     <div class="container">
         <img src="{{ $config->banner_url }}" alt="Bienvenida OBGROUP" class="banner">
-
         <div class="content">
             <div class="intro-text">
                 <p><strong>{!! nl2br(e($config->intro_text)) !!}</strong></p>
@@ -179,12 +178,6 @@
                 <p>{!! nl2br(e($config->closing_text)) !!}</p>
             </div>
 
-            {{-- Frase dinámica al azar --}}
-            @if (isset($data['phrase']))
-                <div class="phrase-box">
-                    <p class="phrase-text">"{{ $data['phrase'] }}"</p>
-                </div>
-            @endif
         </div>
 
         <div class="footer">

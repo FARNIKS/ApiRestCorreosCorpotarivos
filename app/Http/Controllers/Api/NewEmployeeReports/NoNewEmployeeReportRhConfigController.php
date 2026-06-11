@@ -26,7 +26,7 @@ class NoNewEmployeeReportRhConfigController extends Controller
 
         return response()->json([
             'status'  => 'success',
-            'message' => 'Configuración del reporte de RH (Sin Novedades) actualizada',
+            'message' => 'Configuración del reporte de TH (Sin Novedades) actualizada',
             'data'    => new NoNewEmployeeReportRhConfigResource($config)
         ]);
     }
@@ -38,7 +38,7 @@ class NoNewEmployeeReportRhConfigController extends Controller
 
         return response()->json([
             'status'  => 'success',
-            'message' => 'Plantilla de RH (Sin Novedades) restablecida por defecto',
+            'message' => 'Plantilla de TH (Sin Novedades) restablecida por defecto',
             'data'    => new NoNewEmployeeReportRhConfigResource($config)
         ]);
     }

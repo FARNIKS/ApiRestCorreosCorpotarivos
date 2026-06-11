@@ -28,9 +28,18 @@ class ProcessMondayNewEmployee extends Command
         $config = NewEmployeeReportConfig::first();
 
         $bccList = [
-            'ldijeres@corporacionob.com',
-            'mvargasch@corporacionob.com',
-            'mcabreram@corporacionob.com'
+            'obarquero@corporacionob.com',
+            'orbecostarica@corporacionob.com',
+            'orbepanama@corporacionob.com',
+            'orbenicaragua@corporacionob.com',
+            'orbehonduras@corporacionob.com',
+            'orbesalvador@corporacionob.com',
+            'orbeguatemala@corporacionob.com',
+            'orbecolombia@corporacionob.com',
+            'siscon@corporacionob.com',
+            'TodoelPersonal@corporacionob.com',
+            'TodoElPersonalCR@corporacionob.com',
+            'todoelpersonalcentroamerica@corporacionob.com'
         ];
 
         try {

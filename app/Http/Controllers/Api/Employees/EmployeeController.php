@@ -18,29 +18,6 @@ class EmployeeController extends Controller
         return EmployeeResource::collection($employees);
     }
 
-    public function getDepartamentos(): JsonResponse
-    {
-        try {
-            $departamentos = Employee::query()
-                ->select('Departamento')
-                ->whereNotNull('Departamento')
-                ->where('Departamento', '<>', '')
-                ->distinct()
-                ->orderBy('Departamento', 'asc')
-                ->pluck('Departamento');
-
-            return response()->json([
-                'status' => 'success',
-                'data'   => $departamentos
-            ], 200);
-        } catch (\Exception $e) {
-            return response()->json([
-                'status'  => 'error',
-                'message' => 'Error al obtener departamentos: ' . $e->getMessage()
-            ], 500);
-        }
-    }
-
     public function show(Employee $employee): EmployeeResource
     {
         $employee->load(['branch.country']);

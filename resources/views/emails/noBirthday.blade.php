@@ -8,6 +8,7 @@
             font-family: 'Segoe UI', Arial, sans-serif;
             color: #333;
             line-height: 1.6;
+            background-color: transparent;
             margin: 0;
             padding: 0;
         }
@@ -61,7 +62,7 @@
     </style>
 </head>
 
-<body>
+<body style="background-color: transparent;">
     <div class="container">
         <p class="intro-text">
             {!! nl2br(e($config->intro_text)) !!}

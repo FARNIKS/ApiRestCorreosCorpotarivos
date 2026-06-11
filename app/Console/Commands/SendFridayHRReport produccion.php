@@ -18,9 +18,9 @@ class SendFridayHRReport extends Command
         $data = $service->getProcessedNewEmployees();
 
         $recipients = [
-            'ldijeres@corporacionob.com',
-            'mvargasch@corporacionob.com',
-            'mcabreram@corporacionob.com'
+            'talentohumanocentroa@corporacionob.com',
+            'mcabreram@corporacionob.com',
+            'ldijeres@corporacionob.com'
         ];
 
         try {
