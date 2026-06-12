@@ -42,19 +42,31 @@ composer install
 **Base de datos AX:**
 
 ```
-DB_HOST_AX=IP_DEL_SERVIDOR_AX  DB_DATABASE_AX=Desarrollo_CRM_AX  DB_USERNAME_AX=usuario_consulta  DB_PASSWORD_AX=********
+DB_HOST_AX=IP_DEL_SERVIDOR_AX
+DB_DATABASE_AX=Desarrollo_CRM_AX
+DB_USERNAME_AX=usuario_consulta
+DB_PASSWORD_AX=********
 ```
 
 **LDAP Active Directory:**
 
 ```
-LDAP_HOST="IP_CONTROLADOR_DOMINIO"  LDAP_USER='DOMINIO\usuario_lectura'  LDAP_PASSWORD="********"
+LDAP_HOST="IP_CONTROLADOR_DOMINIO"
+LDAP_USER='DOMINIO\usuario_lectura'
+LDAP_PASSWORD="********"
 ```
 
 **Correo SMTP (Office365):**
 
 ```
-MAIL_MAILER=smtp  MAIL_HOST=smtp.office365.com  MAIL_PORT=587  MAIL_USERNAME=tu_correo@office365.com  MAIL_PASSWORD=contraseña_de_aplicacion  MAIL_ENCRYPTION=tls  MAIL_FROM_ADDRESS=tu_correo@office365.com  MAIL_FROM_NAME="Notificaciones OBGROUP"
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.office365.com
+MAIL_PORT=587
+MAIL_USERNAME=tu_correo@office365.com
+MAIL_PASSWORD=contraseña_de_aplicacion
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=tu_correo@office365.com
+MAIL_FROM_NAME="Notificaciones OBGROUP"
 ```
 
 4. Ejecutar migraciones y seeders:
