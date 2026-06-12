@@ -21,11 +21,7 @@ class SendDailyBirthdays extends Command
         $data = $service->getProcessedBirthdays();
 
         if (is_null($data)) {
-            $recipients = [
-                'ldijeres@corporacionob.com',
-                'mvargasch@corporacionob.com',
-                'mcabreram@corporacionob.com'
-            ];
+            $recipients = ['jquesada@corporacionob.com', 'mjimenezf@elorbe.la'];
 
             Mail::to($recipients)->send(new ProcessErrorMail([
                 'message' => 'ALERTA URGENTE: Actualización Incompleta de Base de Datos (Menos de 550 registros)',
@@ -39,9 +35,18 @@ class SendDailyBirthdays extends Command
         $mainRecipient = 'talentohumanocentroa@corporacionob.com';
 
         $bccList = [
-            'ldijeres@corporacionob.com',
-            'mvargasch@corporacionob.com',
-            'mcabreram@corporacionob.com'
+            'obarquero@corporacionob.com',
+            'orbecostarica@corporacionob.com',
+            'orbepanama@corporacionob.com',
+            'orbenicaragua@corporacionob.com',
+            'orbehonduras@corporacionob.com',
+            'orbesalvador@corporacionob.com',
+            'orbeguatemala@corporacionob.com',
+            'orbecolombia@corporacionob.com',
+            'siscon@corporacionob.com',
+            'TodoelPersonal@corporacionob.com',
+            'TodoElPersonalCR@corporacionob.com',
+            'todoelpersonalcentroamerica@corporacionob.com'
         ];
 
         if ($data['birthdays']->isNotEmpty()) {
@@ -66,11 +71,7 @@ class SendDailyBirthdays extends Command
         $auditRecords = $service->getAuditRecords();
 
         if ($auditRecords->isNotEmpty()) {
-            $auditRecipients = [
-                'ldijeres@corporacionob.com',
-                'mvargasch@corporacionob.com',
-                'mcabreram@corporacionob.com'
-            ];
+            $auditRecipients = ['mcabreram@corporacionob.com', 'ldijeres@corporacionob.com'];
 
             Mail::to($auditRecipients)
                 ->send(new DataQualityMail($auditRecords));

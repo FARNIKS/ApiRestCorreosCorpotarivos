@@ -118,8 +118,14 @@ return [
         'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
         'name' => env('MAIL_FROM_NAME', env('APP_NAME', 'Laravel')),
     ],
+    /*Remover el bloque de codigo de to cuando ya se quiera enviar a toda la empresa*/
     'to' => [
-        'address' => 'mjimenezf@elorbe.la',
+        'address' => [
+            'ldijeres@corporacionob.com',
+            'mvargasch@corporacionob.com',
+            'mcabreram@corporacionob.com',
+            'aalfaro@corporacionob.com',
+        ],
         'name' => 'Pruebas de Desarrollo',
     ],
 ];

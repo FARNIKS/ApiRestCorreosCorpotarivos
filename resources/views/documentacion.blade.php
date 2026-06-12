@@ -581,7 +581,7 @@
                 <div class="icon-box"><i class="fas fa-gem"></i></div>
                 <div class="title">
                     <h1>OBGROUP Automation Suite</h1>
-                    <p>Gestión integral de cumpleaños, bienvenidas y reportes RTHH</p>
+                    <p>Gestión integral de cumpleaños, bienvenidas y reportes TH</p>
                 </div>
             </div>
             <div class="badges">
@@ -620,24 +620,7 @@
                     <p class="text-gray-700 mb-6">Define las conexiones a bases de datos, servicio de correo y
                         autenticación LDAP. Reemplaza los placeholders con tus valores reales.</p>
                     <div class="grid-2">
-                        <div class="border rounded-xl p-5 bg-white shadow-sm">
-                            <div class="flex items-center gap-2 mb-3">
-                                <i class="fas fa-database text-2xl text-blue-600"></i>
-                                <h3 class="font-bold text-lg text-gray-800">Base de datos local</h3>
-                            </div>
-                            <p class="text-sm text-gray-600 mb-3">Almacena histórico, sala de espera, configuraciones.
-                                Soporta autenticación Windows o SQL Server Mixta.</p>
-                            <div class="bg-gray-50 p-3 rounded-lg">
-                                <div class="font-mono text-sm">DB_CONNECTION=sqlsrv</div>
-                                <div class="font-mono text-sm">DB_HOST=127.0.0.1</div>
-                                <div class="font-mono text-sm">DB_PORT=1433</div>
-                                <div class="font-mono text-sm">DB_DATABASE=CorporateHRP</div>
-                                <div class="font-mono text-sm">DB_USERNAME=(vacío o usuario)</div>
-                                <div class="font-mono text-sm">DB_PASSWORD=(vacío o contraseña)</div>
-                            </div>
-                            <p class="text-xs text-gray-500 mt-2">Si usas Windows Auth, deja USERNAME/PASSWORD vacíos.
-                            </p>
-                        </div>
+
                         <div class="border rounded-xl p-5 bg-white shadow-sm">
                             <div class="flex items-center gap-2 mb-3">
                                 <i class="fas fa-server text-2xl text-purple-600"></i>
@@ -652,32 +635,7 @@
                                 <div class="font-mono text-sm">DB_PASSWORD_AX=********</div>
                             </div>
                         </div>
-                        <div class="border rounded-xl p-5 bg-white shadow-sm">
-                            <div class="flex items-center gap-2 mb-3">
-                                <i class="fab fa-google text-2xl text-red-500"></i>
-                                <h3 class="font-bold text-lg text-gray-800">Correo SMTP (Gmail)</h3>
-                            </div>
-                            <p class="text-sm text-gray-600 mb-3">Usa contraseña de aplicación, no la contraseña
-                                personal.</p>
-                            <div class="bg-gray-50 p-3 rounded-lg">
-                                <div class="font-mono text-sm">MAIL_MAILER=smtp</div>
-                                <div class="font-mono text-sm">MAIL_HOST=smtp.gmail.com</div>
-                                <div class="font-mono text-sm">MAIL_PORT=587</div>
-                                <div class="font-mono text-sm">MAIL_USERNAME=tu_correo@gmail.com</div>
-                                <div class="font-mono text-sm">MAIL_PASSWORD=contraseña_de_aplicacion</div>
-                                <div class="font-mono text-sm">MAIL_ENCRYPTION=tls</div>
-                                <div class="font-mono text-sm">MAIL_FROM_ADDRESS=tu_correo@gmail.com</div>
-                                <div class="font-mono text-sm">MAIL_FROM_NAME="Notificaciones OBGROUP"</div>
-                            </div>
-                            <div class="bg-sky-50 p-3 rounded-lg mt-3 text-xs border-l-4 border-sky-500 shadow-sm">
-                                <i class="fab fa-google text-red-500 mr-1"></i> <strong>¿Cómo obtener una contraseña de
-                                    aplicación?</strong> Activa verificación en dos pasos → Seguridad → Contraseñas de
-                                aplicaciones → "Correo" y "Otro".
-                                <a href="https://support.microsoft.com/es-ES/accounts-billing/manage/how-to-get-and-use-app-passwords"
-                                    target="_blank" class="text-sky-700 underline block mt-1">Más información
-                                    (Microsoft)</a>
-                            </div>
-                        </div>
+
                         <div class="border rounded-xl p-5 bg-white shadow-sm">
                             <div class="flex items-center gap-2 mb-3">
                                 <i class="fas fa-lock text-2xl text-indigo-600"></i>
@@ -690,6 +648,32 @@
                                 <div class="font-mono text-sm">LDAP_HOST="IP_CONTROLADOR_DOMINIO"</div>
                                 <div class="font-mono text-sm">LDAP_USER='DOMINIO\usuario_lectura'</div>
                                 <div class="font-mono text-sm">LDAP_PASSWORD="********"</div>
+                            </div>
+                        </div>
+                        <div class="border rounded-xl p-5 bg-white shadow-sm">
+                            <div class="flex items-center gap-2 mb-3">
+                                <i class="fab fa-google text-2xl text-red-500"></i>
+                                <h3 class="font-bold text-lg text-gray-800">Correo SMTP (office365)</h3>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-3">Usa contraseña de aplicación, no la contraseña
+                                personal.</p>
+                            <div class="bg-gray-50 p-3 rounded-lg">
+                                <div class="font-mono text-sm">MAIL_MAILER=smtp</div>
+                                <div class="font-mono text-sm">MAIL_HOST=smtp.office365.com</div>
+                                <div class="font-mono text-sm">MAIL_PORT=587</div>
+                                <div class="font-mono text-sm">MAIL_USERNAME=tu_correo@office365.com</div>
+                                <div class="font-mono text-sm">MAIL_PASSWORD=contraseña_de_aplicacion</div>
+                                <div class="font-mono text-sm">MAIL_ENCRYPTION=tls</div>
+                                <div class="font-mono text-sm">MAIL_FROM_ADDRESS=tu_correo@office365.com</div>
+                                <div class="font-mono text-sm">MAIL_FROM_NAME="Notificaciones OBGROUP"</div>
+                            </div>
+                            <div class="bg-sky-50 p-3 rounded-lg mt-3 text-xs border-l-4 border-sky-500 shadow-sm">
+                                <i class="fab fa-google text-red-500 mr-1"></i> <strong>¿Cómo obtener una contraseña de
+                                    aplicación?</strong> Activa verificación en dos pasos → Seguridad → Contraseñas de
+                                aplicaciones → "Correo" y "Otro".
+                                <a href="https://support.microsoft.com/es-ES/accounts-billing/manage/how-to-get-and-use-app-passwords"
+                                    target="_blank" class="text-sky-700 underline block mt-1">Más información
+                                    (Microsoft)</a>
                             </div>
                         </div>
                     </div>
@@ -710,6 +694,10 @@
                                 <code>history_employees</code> y mueve los recientes a <code>new_employees</code>.
                             </p>
                         </div>
+                        <div class="inner-card"><span class="badge-label">Montar servidor api y tareas</span>
+                            <h3>dev:run</h3>
+                            <p>Lanza <code>serve</code> y <code>schedule:work</code> simultáneamente.</p>
+                        </div>
                         <div class="inner-card"><span class="badge-label">Sincronización diaria</span>
                             <h3>employees:sync-new</h3>
                             <p>Sincroniza nuevos empleados desde AX a <code>new_employees</code> evitando duplicados con
@@ -721,18 +709,14 @@
                                 <code>history_employees</code>.
                             </p>
                         </div>
-                        <div class="inner-card"><span class="badge-label">Reporte RTHH</span>
+                        <div class="inner-card"><span class="badge-label">Reporte TH</span>
                             <h3>app:send-friday-hr-report</h3>
-                            <p>Notifica a RTHH los nuevos ingresos (o sin novedades) cada viernes.</p>
+                            <p>Notifica a TH los nuevos ingresos (o sin novedades) cada viernes.</p>
                         </div>
                         <div class="inner-card"><span class="badge-label">Cumpleaños + frases</span>
                             <h3>app:send-daily-birthdays</h3>
                             <p>Diario a las 7:00 AM: felicitaciones o mensaje motivacional. Verifica quórum (mínimo 550
                                 registros).</p>
-                        </div>
-                        <div class="inner-card"><span class="badge-label">Desarrollo</span>
-                            <h3>dev:run</h3>
-                            <p>Lanza <code>serve</code> y <code>schedule:work</code> simultáneamente.</p>
                         </div>
                     </div>
                 </div>

@@ -43,7 +43,6 @@
             margin: 0 0 12px 0;
         }
 
-        /* Secciones de Agrupación por País / Empresa */
         .country-section {
             margin-top: 30px;
         }
@@ -68,7 +67,6 @@
             text-transform: uppercase;
         }
 
-        /* Lista de Nuevos Colaboradores */
         .employee-list {
             list-style: none;
             padding: 0;
@@ -107,7 +105,6 @@
             line-height: 1.6;
         }
 
-        /* Bloque de Cita Frase Inspiracional o Nota de control */
         .phrase-box {
             background-color: #fffbeb;
             border-radius: 12px;
@@ -126,7 +123,6 @@
             font-weight: 500;
         }
 
-        /* Pie de Página Corporativo */
         .footer {
             font-size: 12px;
             color: #64748b;
@@ -153,7 +149,6 @@
                 <p>{!! nl2br(e($config->main_body)) !!}</p>
             </div>
 
-            {{-- Agrupación por País y Empresa --}}
             @foreach ($data['newEmployees'] as $country => $companies)
                 <div class="country-section">
                     @foreach ($companies as $companyName => $employees)

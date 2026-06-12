@@ -8,13 +8,11 @@
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             color: #334155;
             line-height: 1.6;
-            /* Fondo cambiado a transparente como solicitaste */
             background-color: transparent;
             margin: 0;
             padding: 40px 20px;
         }
 
-        /* Tarjeta principal con bordes redondeados y sombra elegante */
         .container {
             max-width: 600px;
             margin: 0 auto;
@@ -25,14 +23,12 @@
             border: 1px solid #e2e8f0;
         }
 
-        /* Banner integrado que se adapta a las esquinas redondeadas */
         .banner {
             width: 100%;
             height: auto;
             display: block;
         }
 
-        /* Contenedor de contenido para dar el espaciado perfecto interno */
         .content {
             padding: 15px 30px 30px 30px;
         }
@@ -47,7 +43,6 @@
             margin-top: 30px;
         }
 
-        /* Contenedor para agrupar por Empresa */
         .company-group {
             margin-bottom: 24px;
             border: 1px solid #e2e8f0;
@@ -56,7 +51,6 @@
             box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.02);
         }
 
-        /* Encabezado limpio con formato global de fiesta */
         .company-header {
             background-color: #f8fafc;
             padding: 14px 20px;
@@ -75,7 +69,6 @@
             margin: 0;
         }
 
-        /* Filas de cumpleañeros mejoradas con un padding más estético */
         .employee-item {
             padding: 16px 20px;
             border-bottom: 1px solid #f1f5f9;
@@ -97,13 +90,11 @@
             margin-top: 30px;
         }
 
-        /* Caja de la frase célebre/cumpleaños premium con margen inferior reducido */
         .phrase-box {
             background-color: #fffbeb;
             border-radius: 12px;
             padding: 22px;
             margin: 30px 0 5px 0;
-            /* Espacio mínimo abajo para pegarse al footer */
             border: 1px solid #fef3c7;
             text-align: center;
         }
@@ -117,7 +108,6 @@
             font-weight: 500;
         }
 
-        /* Pie de página con estructura integrada y más cercano a la frase */
         .footer {
             font-size: 12px;
             color: #64748b;
@@ -143,7 +133,6 @@
                 {!! nl2br(e($config->intro_text)) !!}
             </p>
 
-            {{-- Agrupación por País y Empresa con la ambientación de fiesta 🎉 --}}
             @foreach ($data['birthdays'] as $country => $companies)
                 <div class="country-section">
                     @foreach ($companies as $companyName => $employees)
@@ -168,7 +157,6 @@
                 <p><strong>{{ $config->closing_text }}</strong></p>
             </div>
 
-            {{-- Frase dinámica estilizada en la tarjeta ámbar --}}
             <div class="phrase-box">
                 <p class="phrase-text">"{{ $data['phrase'] }}"</p>
             </div>

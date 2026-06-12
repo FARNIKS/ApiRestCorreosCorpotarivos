@@ -24,6 +24,7 @@
             border: 1px solid #e2e8f0;
         }
 
+        /* --- HEADER --- */
         .audit-header {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             background-color: #0f172a;
@@ -54,62 +55,12 @@
             letter-spacing: 0.3px;
         }
 
+        /* --- BODY --- */
         .audit-body {
             padding: 35px;
         }
 
-        .metrics-row {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 30px;
-        }
-
-        .metric-box {
-            flex: 1;
-            background-color: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 16px 20px;
-        }
-
-        .metric-box.critical {
-            border-left: 4px solid #ef4444;
-        }
-
-        .metric-box.info {
-            border-left: 4px solid #64748b;
-        }
-
-        .metric-box.action {
-            border-left: 4px solid #2563eb;
-        }
-
-        .metric-label {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            color: #64748b;
-            font-weight: 700;
-            margin-bottom: 6px;
-            display: block;
-        }
-
-        .metric-value {
-            font-size: 24px;
-            font-weight: 700;
-            color: #0f172a;
-            line-height: 1;
-        }
-
-        .metric-value.red-text {
-            color: #dc2626;
-        }
-
-        .metric-value.blue-text {
-            color: #2563eb;
-            font-size: 20px;
-        }
-
+        /* --- CONTENEDOR Y TABLA --- */
         .table-container-custom {
             background: #ffffff;
             border-radius: 12px;
@@ -124,52 +75,65 @@
             border-spacing: 0;
         }
 
+        /* Títulos de las columnas con gris leve y centrados */
         .table-custom thead th {
             background-color: #f1f5f9;
-            color: #1e3a8a;
+            /* Gris leve presentable */
+            color: #1e293b;
             font-weight: 700;
             text-transform: uppercase;
             font-size: 11px;
             letter-spacing: 0.8px;
             border-bottom: 2px solid #cbd5e1;
+            border-right: 1px solid #cbd5e1;
+            /* Separación de columnas en header */
             padding: 16px 12px;
             vertical-align: middle;
             text-align: center;
+            /* Centrado estricto */
         }
 
-        /* Ajuste de esquinas superiores para encajar con el contenedor */
+        /* Esquinas superiores del contenedor */
         .table-custom thead th:first-child {
             border-top-left-radius: 11px;
         }
 
         .table-custom thead th:last-child {
             border-top-right-radius: 11px;
+            border-right: none;
+            /* Quita borde sobrante a la derecha */
         }
 
+        /* Celdas del cuerpo centradas y con separación clara */
         .table-custom tbody td {
             padding: 18px 12px;
             border-bottom: 1px solid #e2e8f0;
-            border-right: 1px solid #f1f5f9;
+            /* Separación horizontal de celdas */
+            border-right: 1px solid #e2e8f0;
+            /* Separación de columnas en body */
             font-size: 14px;
             color: #334155;
             vertical-align: middle;
             text-align: center;
+            /* Centrado de todo el contenido */
         }
 
-        .table-custom tbody td:last-child,
-        .table-custom thead th:last-child {
+        .table-custom tbody td:last-child {
             border-right: none;
+            /* Quita borde sobrante a la derecha */
         }
 
+        /* Filas intercaladas para mejorar lectura */
         .table-custom tbody tr:nth-child(even) {
             background-color: #f8fafc;
         }
 
         .table-custom tbody tr:last-child td {
             border-bottom: none;
+            /* Evita doble borde al final */
         }
 
-        /* Ajuste de esquinas inferiores para mantener simetría completa */
+        /* Esquinas inferiores del contenedor */
         .table-custom tbody tr:last-child td:first-child {
             border-bottom-left-radius: 11px;
         }
@@ -178,6 +142,7 @@
             border-bottom-right-radius: 11px;
         }
 
+        /* --- ESTILOS DE CELDAS --- */
         .emp-id {
             font-weight: 600;
             color: #64748b;
@@ -194,26 +159,55 @@
             color: #475569;
         }
 
-        .status-text {
+        /* --- BADGES MODERNOS --- */
+        .status-badge {
             font-weight: 600;
-            font-size: 13.5px;
+            font-size: 12px;
+            padding: 5px 12px;
+            border-radius: 20px;
             display: inline-block;
         }
 
-        .status-text.error {
-            color: #dc2626;
+        .status-badge.warning {
+            color: #b45309;
+            background-color: #fef3c7;
+            border: 1px solid #fde68a;
         }
 
-        .status-text.warning {
-            color: #d97706;
+        .status-badge.error {
+            color: #b91c1c;
+            background-color: #fee2e2;
+            border: 1px solid #fca5a5;
         }
 
+        /* --- DETALLES DE FECHA --- */
+        .date-main {
+            display: block;
+            font-weight: 600;
+            color: #334155;
+        }
+
+        .date-sub {
+            color: #64748b;
+            font-size: 12px;
+            display: block;
+            margin-top: 2px;
+        }
+
+        .date-empty {
+            color: #94a3b8;
+            font-style: italic;
+        }
+
+        /* --- FOOTER --- */
         .audit-footer {
             background-color: #f8fafc;
-            padding: 20px 35px;
+            padding: 24px 35px;
             border-top: 1px solid #e2e8f0;
-            font-size: 12px;
+            font-size: 11px;
             color: #64748b;
+            text-align: center;
+            letter-spacing: 0.3px;
         }
     </style>
 </head>
@@ -227,16 +221,15 @@
         </div>
 
         <div class="audit-body">
-
             <div class="table-container-custom">
                 <table class="table-custom">
                     <thead>
                         <tr>
-                            <th>Cédula</th>
-                            <th>Empresa</th>
-                            <th>Colaborador</th>
-                            <th>Fecha en Sistema</th>
-                            <th>Motivo de Alerta</th>
+                            <th width="16%">Cédula</th>
+                            <th width="20%">Empresa</th>
+                            <th width="24%">Colaborador</th>
+                            <th width="20%">Fecha en Sistema</th>
+                            <th width="20%">Motivo de Alerta</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -247,18 +240,17 @@
                                 <td class="emp-name">{{ $employee->Nombre }}</td>
                                 <td>
                                     @if ($employee->Cumple)
-                                        {{ $employee->Cumple->format('d/m/Y') }} <br>
-                                        <span style="color: #64748b; font-size: 13px;">({{ $employee->Cumple->age }}
-                                            años)</span>
+                                        <span class="date-main">{{ $employee->Cumple->format('d/m/Y') }}</span>
+                                        <span class="date-sub">({{ $employee->Cumple->age }} años)</span>
                                     @else
-                                        <span style="color: #94a3b8; font-style: italic;">No registrada</span>
+                                        <span class="date-empty">No registrada</span>
                                     @endif
                                 </td>
                                 <td>
                                     @if (is_null($employee->Cumple))
-                                        <span class="status-text warning">⚠️ Fecha no definida</span>
+                                        <span class="status-badge warning">⚠️ No definida</span>
                                     @else
-                                        <span class="status-text error">🚫 Edad fuera de rango</span>
+                                        <span class="status-badge error">🚫 Edad inválida</span>
                                     @endif
                                 </td>
                             </tr>
@@ -269,7 +261,7 @@
         </div>
 
         <div class="audit-footer">
-            <div> <strong>Este reporte excluye automáticamente registros marcados como "Dynamics Ax 2012"</strong></div>
+            <div><strong>Este reporte excluye automáticamente registros marcados como "Dynamics Ax 2012"</strong></div>
         </div>
     </div>
 </body>
