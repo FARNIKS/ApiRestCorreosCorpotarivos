@@ -67,12 +67,12 @@ php artisan migrate --seed
 
 |Comando|Descripción|
 |---|---|
-|`db:clonar-historial`|Clona histórico de empleados con ingreso anterior a 7 días a `history_employees` y mueve los recientes a `new_employees` documentacion.blade.php:691-696|
-|`dev:run`|Lanza `serve` y `schedule:work` simultáneamente documentacion.blade.php:697-700|
-|`employees:sync-new`|Sincroniza nuevos empleados desde AX a `new_employees` evitando duplicados con el histórico documentacion.blade.php:701-705|
-|`app:process-monday-new-employees`|Envía correo masivo de bienvenida los lunes y mueve los empleados a `history_employees` documentacion.blade.php:706-711|
-|`app:send-friday-hr-report`|Notifica a TH los nuevos ingresos (o sin novedades) cada viernes documentacion.blade.php:712-715|
-|`app:send-daily-birthdays`|Diario a las 7:00 AM: felicitaciones o mensaje motivacional. Verifica quórum (mínimo 550 registros) documentacion.blade.php:716-720|
+|`db:clonar-historial`|Clona histórico de empleados con ingreso anterior a 7 días a `history_employees` y mueve los recientes a `new_employees`|
+|`dev:run`|Lanza `serve` y `schedule:work` simultáneamente|
+|`employees:sync-new`|Sincroniza nuevos empleados desde AX a `new_employees` evitando duplicados con el histórico|
+|`app:process-monday-new-employees`|Envía correo masivo de bienvenida los lunes y mueve los empleados a `history_employees`|
+|`app:send-friday-hr-report`|Notifica a TH los nuevos ingresos (o sin novedades) cada viernes|
+|`app:send-daily-birthdays`|Diario a las 7:00 AM: felicitaciones o mensaje motivacional. Verifica quórum (mínimo 550 registros)|
 
 ## Programador de Tareas
 
@@ -80,47 +80,79 @@ El sistema utiliza el programador de Laravel con la siguiente configuración:
 
 |Tarea|Horario|Control de Pausa|
 |---|---|---|
-|`app:send-daily-birthdays`|Diario 07:00|`birthdays_paused` documentacion.blade.php:734-741|
-|`app:send-friday-hr-report`|Viernes 16:40|`new_employees_friday_paused` documentacion.blade.php:742-749|
-|`app:process-monday-new-employees`|Lunes 09:00|`new_employees_monday_paused` documentacion.blade.php:750-757|
-|`employees:sync-new`|Diario 07:00 y 16:35|— documentacion.blade.php:758-765|
+|`app:send-daily-birthdays`|Diario 07:00|`birthdays_paused`|
+|`app:send-friday-hr-report`|Viernes 16:40|`new_employees_friday_paused`|
+|`app:process-monday-new-employees`|Lunes 09:00|`new_employees_monday_paused`|
+|`employees:sync-new`|Diario 07:00 y 16:35|—|
 
-Las pausas se activan/desactivan desde la API (endpoints de administrador) documentacion.blade.php:767-770 .
+Las pausas se activan/desactivan desde la API (endpoints de administrador).
 
 ## API REST
 
-Base URL: `/api/v1` api.php:21-23
+Base URL: `/api/v1`
 
 ### Endpoints Públicos
 
 |Método|Endpoint|Descripción|
 |---|---|---|
-|POST|`/login`|Autenticación con LDAP, retorna token Sanctum api.php:23|
-|GET|`/documentacion`|Muestra la documentación en HTML api.php:22|
+|POST|`/login`|Autenticación con LDAP, retorna token Sanctum|
+|GET|`/documentacion`|Muestra la documentación en HTML|
 
 ### Endpoints Autenticados (requieren token)
 
 |Método|Endpoint|Descripción|
 |---|---|---|
-|GET|`/user`|Perfil del usuario autenticado api.php:27|
-|POST|`/logout`|Revocar token actual api.php:28|
-|GET|`/users`|Listado de usuarios (solo admin) api.php:29|
-|GET|`/history-employees`|Historial de empleados notificados api.php:31|
-|GET|`/new-employees`|Lista de sala de espera api.php:33|
-|GET|`/new-employees/count`|Conteo de nuevos empleados pendientes api.php:34|
-|GET|`/new-employees/{newEmployee}`|Detalle de un nuevo empleado api.php:35|
-|GET|`/employees`|Lista de empleados externos (AX) api.php:38|
-|GET|`/employees/{employee}`|Ver empleado externo api.php:39|
-|GET|`/branches`|Lista de sucursales api.php:41|
-|GET|`/branches/{branch}`|Ver sucursal específica api.php:42|
-|GET|`/countries`|Lista de países api.php:44|
-|GET|`/countries/{country}`|Ver país específico api.php:45|
+|GET|`/user`|Perfil del usuario autenticado|
+|POST|`/logout`|Revocar token actual|
+|GET|`/users`|Listado de usuarios (solo admin)|
+|GET|`/history-employees`|Historial de empleados notificados|
+|GET|`/new-employees`|Lista de sala de espera|
+|GET|`/new-employees/count`|Conteo de nuevos empleados pendientes|
+|GET|`/new-employees/{newEmployee}`|Detalle de un nuevo empleado|
+|GET|`/employees`|Lista de empleados externos (AX)|
+|GET|`/employees/{employee}`|Ver empleado externo|
+|GET|`/branches`|Lista de sucursales|
+|GET|`/branches/{branch}`|Ver sucursal específica|
+|GET|`/countries`|Lista de países|
+|GET|`/countries/{country}`|Ver país específico|
 
 ### Endpoints de Configuración
 
-| Método | Endpoint                                | Descripción                              |
-| ------ | --------------------------------------- | ---------------------------------------- |
-| GET    | `/settings/status`                      | Estado de pausa de cumpleaños api.php:49 |
-| GET    | `/settings/new-employees-friday-status` | Estado pausa reporte viernes api.php:50  |
-| GET    | `/settings/new-employees-monday-status` | Estado pausa proceso lunes api.php:51    |
-| GET    | `/settings/birthday`                    | Ver plantilla cumpleaños                 |
+|Método|Endpoint|Descripción|
+|---|---|---|
+|GET|`/settings/status`|Estado de pausa de cumpleaños|
+|GET|`/settings/new-employees-friday-status`|Estado pausa reporte viernes|
+|GET|`/settings/new-employees-monday-status`|Estado pausa proceso lunes|
+|GET|`/settings/birthday`|Ver plantilla cumpleaños|
+|GET|`/settings/no-birthday`|Ver plantilla día sin cumpleaños|
+|GET|`/settings/new-employee-report`|Ver plantilla bienvenida general|
+|GET|`/settings/new-employee-report-rh`|Ver plantilla reporte TH (con novedades)|
+|GET|`/settings/no-new-employee-report-rh`|Ver plantilla reporte TH (sin novedades)|
+
+### Endpoints de Administrador (requieren rol admin)
+
+Estos endpoints permiten gestionar usuarios, sincronizaciones manuales, pausar/reanudar tareas y actualizar plantillas de correo.
+
+## Estructura de Datos
+
+### Migraciones Principales
+
+- **Plantillas editables**: `birthday_configs`, `no_birthday_configs`, `new_employee_report_configs`, reportes TH
+- **Catálogos geográficos**: `countries`, `branches` (relación país - sucursal)
+- **Control histórico**: `history_employees` (enviados), `new_employees` (pendientes)
+- **Frases motivacionales**: `messages` (366 frases rotativas)
+
+### Seeders
+
+- **Países**: Nicaragua, Costa Rica, Honduras, Guatemala, El Salvador, Colombia, Panamá
+- **Sucursales**: ORBE (CEO, CEON, CEOP, CEOC, CEOH, CEOS, CEOG), ATI, NOVA, SISCON
+- **Plantillas por defecto**: Banners, textos, firmas para todos los correos
+- **366 frases motivacionales**: Rotación en días sin cumpleaños y reportes
+
+## Documentación
+
+Para ver la documentación completa en formato HTML, accede a `/api/v1/documentacion` después de iniciar el servidor.
+
+## Licencia
+
+© 2026 OBGROUP SYSTEM • Gestión Corporativa Global
